@@ -1,8 +1,0 @@
-## In utils/api.js, use env var:
-
-const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"
-})
-
-
-## This makes it deployment-ready.
