@@ -71,3 +71,9 @@ model Review {
   technicianId     Int
   clientId         Int
 }
+
+
+RUN:
+
+bash
+npx prisma migrate dev
