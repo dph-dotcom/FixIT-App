@@ -22,3 +22,13 @@ app.listen(4000, () =>
   console.log("Backend running on http://localhost:4000")
 )
 
+
+
+
+------------Backend: Small GitHub Cleanup------------
+
+app.get("/", (req, res) => {
+  res.json({ status: "RepairHub API running" })
+})
+
+--------This makes the API feel “alive” when someone tests it.---------
