@@ -1,0 +1,7 @@
+## Add this to backend/index.js
+
+app.get("/", (req, res) => {
+  res.json({ status: "RepairHub API running" })
+})
+
+## This makes the API feel “alive” when someone tests it.
