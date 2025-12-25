@@ -31,3 +31,8 @@ router.post("/register", async (req, res) => {
 })
 
 module.exports = router
+
+
+
+
+++++++++++++++Other routes like jobs, admin, technician, reviews follow the same simple Express + Prisma pattern+++++++++++++++++++++
