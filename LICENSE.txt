@@ -1,0 +1,12 @@
+Copyright (c) 2025
+
+This software is provided for evaluation and licensing purposes only.
+
+You may not:
+- Resell the source code
+- Redistribute the source code
+- Claim authorship
+
+Commercial use requires a valid license agreement.
+
+For licensing inquiries, contact the author.
