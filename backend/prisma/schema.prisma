@@ -1,0 +1,73 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CLIENT
+  TECH
+  ADMIN
+}
+
+enum TechStatus {
+  PENDING
+  APPROVED
+}
+
+model Tenant {
+  id           Int      @id @default(autoincrement())
+  name         String
+  slug         String   @unique
+  logoUrl      String?
+  primaryColor String   @default("#2563eb")
+  createdAt    DateTime @default(now())
+
+  users User[]
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role
+  tenantId  Int?
+  createdAt DateTime @default(now())
+
+  tenant Tenant? @relation(fields: [tenantId], references: [id])
+}
+
+model TechnicianProfile {
+  id        Int        @id @default(autoincrement())
+  userId    Int        @unique
+  service   String
+  city      String
+  barangay  String
+  status    TechStatus @default(PENDING)
+  rating    Float      @default(0)
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model ServiceRequest {
+  id           Int      @id @default(autoincrement())
+  category     String
+  description  String
+  status       String   @default("PENDING")
+  clientId     Int
+  technicianId Int?
+  createdAt    DateTime @default(now())
+}
+
+model Review {
+  id              Int      @id @default(autoincrement())
+  rating          Int
+  comment         String?
+  serviceRequestId Int     @unique
+  technicianId     Int
+  clientId         Int
+}
